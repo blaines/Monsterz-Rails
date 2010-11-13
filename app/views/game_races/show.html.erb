@@ -1,0 +1,12 @@
+<% title "Game Race" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @game_race.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_game_race_path(@game_race) %> |
+  <%= link_to "Destroy", @game_race, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", game_races_path %>
+</p>

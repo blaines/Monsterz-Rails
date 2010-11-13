@@ -1,0 +1,24 @@
+<% title "Game Level" %>
+
+<p>
+  <strong>Order:</strong>
+  <%= @game_level.order %>
+</p>
+<p>
+  <strong>Max Health:</strong>
+  <%= @game_level.max_health %>
+</p>
+<p>
+  <strong>Max Turns:</strong>
+  <%= @game_level.max_turns %>
+</p>
+<p>
+  <strong>Required Experience:</strong>
+  <%= @game_level.required_experience %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_game_level_path(@game_level) %> |
+  <%= link_to "Destroy", @game_level, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", game_levels_path %>
+</p>

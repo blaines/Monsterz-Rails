@@ -1,0 +1,21 @@
+<%= form_for @game_character, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :race %><br />
+    <%= f.collection_select :race, @game.game_races.all, :id, :name %>
+  </p>
+  <p>
+    <%= f.label :min_level %><br />
+    <%= f.text_field :min_level %>
+  </p>
+  <p>
+    <%= f.label :asset %><br />
+    <%= f.file_field :asset %>
+    <%= f.hidden_field :asset_cache %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

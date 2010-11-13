@@ -1,0 +1,7 @@
+one:
+  asset: MyString
+  min_level: 1
+
+two:
+  asset: MyString
+  min_level: 1

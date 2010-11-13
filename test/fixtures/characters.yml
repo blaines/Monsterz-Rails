@@ -1,0 +1,15 @@
+one:
+  energy: 1
+  level: 1
+  turns: 1
+  type: MyString
+  health: 1
+  experience: 1
+
+two:
+  energy: 1
+  level: 1
+  turns: 1
+  type: MyString
+  health: 1
+  experience: 1

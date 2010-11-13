@@ -1,0 +1,11 @@
+one:
+  order: 1
+  max_health: 1
+  max_turns: 1
+  required_experience: 1
+
+two:
+  order: 1
+  max_health: 1
+  max_turns: 1
+  required_experience: 1

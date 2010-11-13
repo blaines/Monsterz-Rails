@@ -1,0 +1,13 @@
+<% title @game.name %>
+
+<ul>
+	<li>
+		<%= link_to "#{@game.game_levels.count} Levels", game_levels_path %>
+	</li>
+	<li>
+		<%= link_to "#{@game.game_races.count} Races", game_races_path %>
+	</li>
+	<li>
+		<%= link_to "#{@game.game_characters.count} Characters", game_characters_path %>
+	</li>
+</ul>

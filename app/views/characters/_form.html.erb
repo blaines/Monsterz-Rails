@@ -1,0 +1,28 @@
+<%= form_for @character do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :energy %><br />
+    <%= f.text_field :energy %>
+  </p>
+  <p>
+    <%= f.label :level %><br />
+    <%= f.text_field :level %>
+  </p>
+  <p>
+    <%= f.label :turns %><br />
+    <%= f.text_field :turns %>
+  </p>
+  <p>
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </p>
+  <p>
+    <%= f.label :health %><br />
+    <%= f.text_field :health %>
+  </p>
+  <p>
+    <%= f.label :experience %><br />
+    <%= f.text_field :experience %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

@@ -1,0 +1,32 @@
+<% title "Character" %>
+
+<p>
+  <strong>Energy:</strong>
+  <%= @character.energy %>
+</p>
+<p>
+  <strong>Level:</strong>
+  <%= @character.level %>
+</p>
+<p>
+  <strong>Turns:</strong>
+  <%= @character.turns %>
+</p>
+<p>
+  <strong>Type:</strong>
+  <%= @character.type %>
+</p>
+<p>
+  <strong>Health:</strong>
+  <%= @character.health %>
+</p>
+<p>
+  <strong>Experience:</strong>
+  <%= @character.experience %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_character_path(@character) %> |
+  <%= link_to "Destroy", @character, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", characters_path %>
+</p>

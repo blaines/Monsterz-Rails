@@ -1,0 +1,17 @@
+<% title "Game Races" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for game_race in @game_races %>
+    <tr>
+      <td><%= game_race.name %></td>
+      <td><%= link_to "Show", game_race %></td>
+      <td><%= link_to "Edit", edit_game_race_path(game_race) %></td>
+      <td><%= link_to "Destroy", game_race, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Game Race", new_game_race_path %></p>

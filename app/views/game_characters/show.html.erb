@@ -1,0 +1,16 @@
+<% title "Game Character" %>
+
+<p>
+  <strong>Asset:</strong>
+  <%= @game_character.asset %>
+</p>
+<p>
+  <strong>Min Level:</strong>
+  <%= @game_character.min_level %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_game_character_path(@game_character) %> |
+  <%= link_to "Destroy", @game_character, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", game_characters_path %>
+</p>
