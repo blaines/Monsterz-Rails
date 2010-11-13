@@ -6,6 +6,15 @@
 </p>
 
 <p>
+  <strong>Adrenaline:</strong>
+  <%= @player.adrenaline %>
+</p>
+
+<p>
+	<%= link_to "Characters", player_characters_path(@player) %>
+</p>
+
+<p>
   <%= link_to "Edit", edit_player_path(@player) %> |
   <%= link_to "Destroy", @player, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", players_path %>

@@ -1,6 +1,6 @@
 class Player
   include Mongoid::Document
   field :name
-  field :energy
+  field :adrenaline
   embeds_many :characters
 end

@@ -2,12 +2,12 @@
 
 <table>
   <tr>
-    <th>Asset</th>
-    <th>Min Level</th>
+    <th>Name</th>
+    <th>Level</th>
   </tr>
   <% for game_character in @game_characters %>
     <tr>
-      <td><%= game_character.asset %></td>
+      <td><%= game_character.name %></td>
       <td><%= game_character.min_level %></td>
       <td><%= link_to "Show", game_character %></td>
       <td><%= link_to "Edit", edit_game_character_path(game_character) %></td>

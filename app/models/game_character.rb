@@ -3,7 +3,7 @@ class GameCharacter
   mount_uploader :asset, AssetUploader
   field :name
   field :min_level
-  field :race
   embedded_in :game, :inverse_of => :game_character
+  references_many :characters
   referenced_in :game_race
 end

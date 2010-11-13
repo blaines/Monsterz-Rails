@@ -1,9 +1,5 @@
-<%= form_for @character do |f| %>
+<%= form_for [@player,@character] do |f| %>
   <%= f.error_messages %>
-  <p>
-    <%= f.label :energy %><br />
-    <%= f.text_field :energy %>
-  </p>
   <p>
     <%= f.label :level %><br />
     <%= f.text_field :level %>
@@ -13,8 +9,8 @@
     <%= f.text_field :turns %>
   </p>
   <p>
-    <%= f.label :type %><br />
-    <%= f.text_field :type %>
+    <%= f.label :game_character %><br />
+	<%= f.collection_select :game_character, Game.first.game_characters.all, :id, :name %>
   </p>
   <p>
     <%= f.label :health %><br />

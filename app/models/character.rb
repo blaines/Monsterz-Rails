@@ -6,4 +6,5 @@ class Character
   field :health
   field :experience
   embedded_in :player, :inverse_of => :character
+  referenced_in :game_character
 end

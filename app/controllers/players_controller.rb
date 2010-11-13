@@ -5,6 +5,11 @@ class PlayersController < ApplicationController
   
   def show
     @player = Player.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml  => @player }
+      format.json { render :json => @player }
+    end
   end
   
   def new
@@ -27,12 +32,21 @@ class PlayersController < ApplicationController
   
   def update
     @player = Player.find(params[:id])
-    if @player.update_attributes(params[:player])
-      flash[:notice] = "Successfully updated player."
-      redirect_to @player
-    else
-      render :action => 'edit'
+    
+    respond_to do |format|
+      if @player.update_attributes(params[:player])
+        format.html {
+          flash[:notice] = "Successfully updated player."
+          redirect_to @player
+        }
+        format.any(:xml, :json) { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml  => @player.errors, :status => :unprocessable_entity }
+        format.json { render :json => @player.errors, :status => :unprocessable_entity }
+      end
     end
+    
   end
   
   def destroy

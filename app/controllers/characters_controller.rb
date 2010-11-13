@@ -1,20 +1,24 @@
 class CharactersController < ApplicationController
   def index
-    @characters = Character.all
+    @player = Player.find(params[:player_id])
+    @characters = @player.characters.all
   end
   
   def show
-    @character = Character.find(params[:id])
+    @player = Player.find(params[:player_id])
+    @character = @player.characters.find(params[:id])
   end
   
   def new
-    @character = Character.new
+    @player = Player.find(params[:player_id])
+    @character = @player.characters.build
   end
   
   def create
-    @character = Character.new(params[:character])
-    if @character.save
-      flash[:notice] = "Successfully created character."
+    @player = Player.find(params[:player_id])
+    @character = @player.characters.build(params[:character])
+    if @@player.characters.save
+      flash[:notice] = "Successfully created @player.characters."
       redirect_to @character
     else
       render :action => 'new'
@@ -22,13 +26,15 @@ class CharactersController < ApplicationController
   end
   
   def edit
-    @character = Character.find(params[:id])
+    @player = Player.find(params[:player_id])
+    @character = @player.characters.find(params[:id])
   end
   
   def update
-    @character = Character.find(params[:id])
-    if @character.update_attributes(params[:character])
-      flash[:notice] = "Successfully updated character."
+    @player = Player.find(params[:player_id])
+    @character = @player.characters.find(params[:id])
+    if @@player.characters.update_attributes(params[:character])
+      flash[:notice] = "Successfully updated @player.characters."
       redirect_to @character
     else
       render :action => 'edit'
@@ -36,9 +42,9 @@ class CharactersController < ApplicationController
   end
   
   def destroy
-    @character = Character.find(params[:id])
-    @character.destroy
-    flash[:notice] = "Successfully destroyed character."
+    @character = @player.characters.find(params[:id])
+    @@player.characters.destroy
+    flash[:notice] = "Successfully destroyed @player.characters."
     redirect_to characters_url
   end
 end
