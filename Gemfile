@@ -1,6 +1,13 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.0'
+gem "mongoid", "2.0.0.beta.20"
+gem "bson_ext", "1.1.2"
+gem "mocha"
+gem 'nifty-generators'
+gem 'formtastic'
+gem 'carrierwave'
+gem 'fog'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -28,3 +35,4 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # group :development, :test do
 #   gem 'webrat'
 # end
+gem "mocha", :group => :test

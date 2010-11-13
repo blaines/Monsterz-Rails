@@ -1,4 +1,21 @@
 Monsters::Application.routes.draw do
+
+  resource :game do
+
+    resources :game_levels, :as => :levels
+    
+    resources :game_races, :as => :races
+
+    resources :game_characters, :as => :characters
+    
+  end
+  
+  resources :players do
+    
+    resources :characters
+    
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
