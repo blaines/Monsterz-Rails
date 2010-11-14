@@ -88,6 +88,7 @@ class DecisionsController < ApplicationController
         @player.adrenaline += @character.level*20
       else
         z = "#{a} BAD"
+        @character.health -= @character.health*(0.2+(rand(100)/100)*0.1)
       end
       levelup?
       @player.save
