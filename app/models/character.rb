@@ -22,4 +22,17 @@ class Character
     Game.first.game_races.find race
   end
   
+  def max_health
+    95+(5*level.to_i)
+  end
+  
+  def formatted_hash
+    z = self.serializable_hash
+    z["race"] = race_data.name
+    z["player_id"] = player.id
+    z["name"] = game_character.name
+    z["max_health"] = max_health
+    z
+  end
+  
 end

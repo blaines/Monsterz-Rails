@@ -93,7 +93,7 @@ class DecisionsController < ApplicationController
       @player.save
       respond_to do |format|
         format.html { render :text => z}
-        format.json { render :json => {:response => :ok}.merge(@character.serializable_hash).to_json }
+        format.json { render :json => {:response => :ok}.merge({:character => @character.formatted_hash}).to_json }
       end
     end
   end
