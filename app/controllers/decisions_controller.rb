@@ -4,29 +4,33 @@ class DecisionsController < ApplicationController
     @player = Player.find(params[:player_id])
     @character = @player.characters.find(params[:character_id])
     
-    puts @player.id
-    puts @character.id
+    if use_turns(1)
     
-    max_health = 95+(5*@character.level.to_i)
-    gain_health = max_health/2
+      puts @player.id
+      puts @character.id
     
-    puts ">> GAIN_HEALTH: #{gain_health}"
+      max_health = 95+(5*@character.level.to_i)
+      gain_health = max_health/2
     
-    if @character.health+gain_health<max_health
-      health = gain_health+@character.health
-    else
-      health = max_health
-    end
+      puts ">> GAIN_HEALTH: #{gain_health}"
+    
+      if @character.health+gain_health<max_health
+        health = gain_health+@character.health
+      else
+        health = max_health
+      end
     
     
-    puts ">> HEALTH: #{health}"
+      puts ">> HEALTH: #{health}"
     
     
-    @character.health = health
-    @player.save
-    respond_to do |format|
-      format.html { render :text => "REST"}
-      format.json { render :json => {:response => :ok}.merge({:character => @character.formatted_hash}).to_json }
+      @character.health = health
+      @player.save
+      respond_to do |format|
+        format.html { render :text => "REST"}
+        format.json { render :json => {:response => :ok}.merge({:character => @character.formatted_hash}).to_json }
+      end
+      
     end
   end
   
@@ -35,21 +39,22 @@ class DecisionsController < ApplicationController
     a = rand(10)
     @player = Player.find(params[:player_id])
     @character = @player.characters.find(params[:character_id])
-    use_turns(5)
-    case
-    when a > 3
-      z = "#{a} GOOD"
-      @character.experience += @character.level*2*5.5
-      @player.adrenaline += @character.level*20*5.5
-    else
-      @character.health -= @character.health*(0.2+(rand(100)/100)*0.1)
-      z = "#{a} BAD"
-    end
-    levelup?
-    @player.save
-    respond_to do |format|
-      format.html { render :text => z}
-      format.json { render :json => {:response => :ok}.merge({:character => @character.formatted_hash}).to_json }
+    if use_turns(5)
+      case
+      when a > 3
+        z = "#{a} GOOD"
+        @character.experience += @character.level*2*5.5
+        @player.adrenaline += @character.level*20*5.5
+      else
+        @character.health -= @character.health*(0.2+(rand(100)/100)*0.1)
+        z = "#{a} BAD"
+      end
+      levelup?
+      @player.save
+      respond_to do |format|
+        format.html { render :text => z}
+        format.json { render :json => {:response => :ok}.merge({:character => @character.formatted_hash}).to_json }
+      end
     end
   end
   
