@@ -26,7 +26,7 @@ class DecisionsController < ApplicationController
     @player.save
     respond_to do |format|
       format.html { render :text => "REST"}
-      format.json { render :json => {:response => :ok}.to_json }
+      format.json { render :json => {:response => :ok}.merge({:character => @character.formatted_hash}).to_json }
     end
   end
   
@@ -48,7 +48,7 @@ class DecisionsController < ApplicationController
     @player.save
     respond_to do |format|
       format.html { render :text => z}
-      format.json { render :json => z.to_json }
+      format.json { render :json => {:response => :ok}.merge({:character => @character.formatted_hash}).to_json }
     end
   end
   
@@ -70,7 +70,7 @@ class DecisionsController < ApplicationController
       @player.save
       respond_to do |format|
         format.html { render :text => z}
-        format.json { render :json => z.to_json }
+      format.json { render :json => {:response => :ok}.merge({:character => @character.formatted_hash}).to_json }
       end
     end
   end
@@ -122,7 +122,7 @@ class DecisionsController < ApplicationController
     @player.save
     respond_to do |format|
       format.html { render :text => z}
-      format.json { render :json => z.to_json }
+      format.json { render :json => {:response => :ok}.merge({:character => @character.formatted_hash}).to_json }
     end
   end
 
@@ -133,7 +133,7 @@ class DecisionsController < ApplicationController
     @player.save
     respond_to do |format|
       format.html { render :text => z}
-      format.json { render :json => z.to_json }
+      format.json { render :json => {:response => :ok}.merge({:character => @character.formatted_hash}).to_json }
     end
   end
   
@@ -144,7 +144,7 @@ class DecisionsController < ApplicationController
     else
       respond_to do |format|
         format.html { render :text => "NOT ENOUGH TURNS"}
-        format.json { render :json => {:response => :not_enough_turns}.to_json }
+        format.json { render :json => {:response => :not_enough_turns}.merge({:character => @character.formatted_hash}).to_json }
       end
       return false
     end
