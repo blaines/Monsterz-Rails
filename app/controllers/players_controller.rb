@@ -5,10 +5,12 @@ class PlayersController < ApplicationController
   
   def show
     @player = Player.find(params[:id])
-    player = @player.serializable_hash["characters"].map do |c|
+    player = @player.serializable_hash
+    player["characters"] = player["characters"].map do |c|
       z = c.serializable_hash
       z["race"] = c.race_data.name
       z["player_id"] = c.player.id
+      z["name"] = c.game_character.name
       c = z
     end
     respond_to do |format|
