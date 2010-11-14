@@ -107,6 +107,21 @@ class DecisionsController < ApplicationController
   end
   
   def convert_adrenaline
+    @player = Player.find(params[:player_id])
+    @character = @player.characters.find(params[:character_id])
+    
+    experience_gap = (@character.next_level_experience)-(@character.experience)
+    
+    z = "Remaining Experience #{experience_gap}"
+    
+    @player.adrenaline -= experience_gap
+    @character.experience += experience_gap
+    levelup?
+    @player.save
+    respond_to do |format|
+      format.html { render :text => z}
+      format.json { render :json => {:response => :ok}.merge({:character => @character.formatted_hash}).to_json }
+    end
     
   end
   
