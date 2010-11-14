@@ -30,6 +30,10 @@ class Character
     self.level
   end
   
+  def next_level_experience
+    self.level**3
+  end
+  
   def formatted_hash
     z = self.serializable_hash
     z["race"] = race_data.name
@@ -37,6 +41,7 @@ class Character
     z["name"] = game_character.name
     z["max_health"] = max_health
     z["max_turns"] = max_turns
+    z["next_level_experience"] = next_level_experience
     z
   end
   
