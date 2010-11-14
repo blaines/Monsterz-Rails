@@ -34,6 +34,10 @@ class Character
     self.level**3
   end
   
+  def next_level_progress
+    (((self.level**3)-(self.experience)).to_f/((self.level**3)-((self.level-1)**3)).to_f).round(2)
+  end
+  
   def formatted_hash
     z = self.serializable_hash
     z["race"] = race_data.name
@@ -42,6 +46,7 @@ class Character
     z["max_health"] = max_health
     z["max_turns"] = max_turns
     z["next_level_experience"] = next_level_experience
+    z["next_level_progress"] = next_level_progress
     z
   end
   
