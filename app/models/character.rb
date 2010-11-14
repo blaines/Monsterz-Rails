@@ -26,12 +26,17 @@ class Character
     95+(5*level.to_i)
   end
   
+  def max_turns
+    self.level
+  end
+  
   def formatted_hash
     z = self.serializable_hash
     z["race"] = race_data.name
     z["player_id"] = player.id
     z["name"] = game_character.name
     z["max_health"] = max_health
+    z["max_turns"] = max_turns
     z
   end
   
