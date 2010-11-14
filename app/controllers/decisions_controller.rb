@@ -172,7 +172,6 @@ class DecisionsController < ApplicationController
     if @character.experience >= @character.level**3
       @character.level += 1
       @character.health = 95+(5*@character.level)
-      @character.turns = @character.level
     end
   end
   
