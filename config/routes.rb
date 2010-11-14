@@ -15,6 +15,8 @@ Monsters::Application.routes.draw do
     resources :characters
     
   end
+  
+  match 'decisions(/:action(/:player_id(/:character_id(.:format))))' => 'decisions'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

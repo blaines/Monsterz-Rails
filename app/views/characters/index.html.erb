@@ -2,23 +2,23 @@
 
 <table>
   <tr>
-    <th>Energy</th>
     <th>Level</th>
     <th>Turns</th>
-    <th>Type</th>
+    <th>Race</th>
+    <th>Monster</th>
     <th>Health</th>
     <th>Experience</th>
   </tr>
   <% for character in @characters %>
     <tr>
-      <td><%= character.energy %></td>
       <td><%= character.level %></td>
       <td><%= character.turns %></td>
-      <td><%= character.type %></td>
+      <td><%= character.race_data.name %></td>
+      <td><%= character.game_character.name %></td>
       <td><%= character.health %></td>
       <td><%= character.experience %></td>
       <td><%= link_to "Show", [@player,character] %></td>
-      <td><%= link_to "Edit", edit_character_path(@player,character) %></td>
+      <td><%= link_to "Edit", edit_player_character_path(@player,character) %></td>
       <td><%= link_to "Destroy", [@player,character], :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>

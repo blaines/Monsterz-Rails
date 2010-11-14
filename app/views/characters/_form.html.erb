@@ -9,8 +9,8 @@
     <%= f.text_field :turns %>
   </p>
   <p>
-    <%= f.label :game_character %><br />
-	<%= f.collection_select :game_character, Game.first.game_characters.all, :id, :name %>
+    <%= f.label :race %><br />
+	<%= f.collection_select :race, Game.first.game_races.all, :id, :name %>
   </p>
   <p>
     <%= f.label :health %><br />

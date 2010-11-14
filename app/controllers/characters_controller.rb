@@ -17,9 +17,9 @@ class CharactersController < ApplicationController
   def create
     @player = Player.find(params[:player_id])
     @character = @player.characters.build(params[:character])
-    if @@player.characters.save
+    if @character.save
       flash[:notice] = "Successfully created @player.characters."
-      redirect_to @character
+      redirect_to [@player,@character]
     else
       render :action => 'new'
     end
@@ -33,18 +33,19 @@ class CharactersController < ApplicationController
   def update
     @player = Player.find(params[:player_id])
     @character = @player.characters.find(params[:id])
-    if @@player.characters.update_attributes(params[:character])
+    if @character.update_attributes(params[:character])
       flash[:notice] = "Successfully updated @player.characters."
-      redirect_to @character
+      redirect_to [@player,@character]
     else
       render :action => 'edit'
     end
   end
   
   def destroy
+    @player = Player.find(params[:player_id])
     @character = @player.characters.find(params[:id])
-    @@player.characters.destroy
+    @character.destroy
     flash[:notice] = "Successfully destroyed @player.characters."
-    redirect_to characters_url
+    redirect_to player_characters_url(@player)
   end
 end

@@ -1,6 +1,8 @@
 class Player
   include Mongoid::Document
   field :name
-  field :adrenaline
+  field :adrenaline, :type => Integer
   embeds_many :characters
+  
+  validates_uniqueness_of :name
 end
