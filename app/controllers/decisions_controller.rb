@@ -42,6 +42,7 @@ class DecisionsController < ApplicationController
       @character.experience += @character.level*2*5.5
       @player.adrenaline += @character.level*20*5.5
     else
+      @character.health -= @character.health*(0.2+(rand(100)/100)*0.1)
       z = "#{a} BAD"
     end
     levelup?
@@ -64,6 +65,7 @@ class DecisionsController < ApplicationController
         @character.experience += @character.level*2*11.5
         @player.adrenaline += @character.level*20*11.5
       else
+        @character.health -= @character.health*(0.2+(rand(100)/100)*0.1)
         z = "#{a} BAD"
       end
       levelup?
@@ -87,8 +89,8 @@ class DecisionsController < ApplicationController
         @character.experience += @character.level*2
         @player.adrenaline += @character.level*20
       else
-        z = "#{a} BAD"
         @character.health -= @character.health*(0.2+(rand(100)/100)*0.1)
+        z = "#{a} BAD"
       end
       levelup?
       @player.save
