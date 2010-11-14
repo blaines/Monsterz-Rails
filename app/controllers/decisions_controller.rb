@@ -80,20 +80,21 @@ class DecisionsController < ApplicationController
     a = rand(10)
     @player = Player.find(params[:player_id])
     @character = @player.characters.find(params[:character_id])
-    use_turns(1)
-    case
-    when a > 3
-      z = "#{a} GOOD"
-      @character.experience += @character.level*2
-      @player.adrenaline += @character.level*20
-    else
-      z = "#{a} BAD"
-    end
-    levelup?
-    @player.save
-    respond_to do |format|
-      format.html { render :text => z}
-      format.json { render :json => z.to_json }
+    if use_turns(1)
+      case
+      when a > 3
+        z = "#{a} GOOD"
+        @character.experience += @character.level*2
+        @player.adrenaline += @character.level*20
+      else
+        z = "#{a} BAD"
+      end
+      levelup?
+      @player.save
+      respond_to do |format|
+        format.html { render :text => z}
+        format.json { render :json => {:response => :ok}.merge(@character.serializable_hash).to_json }
+      end
     end
   end
   
