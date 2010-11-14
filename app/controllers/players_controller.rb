@@ -5,10 +5,16 @@ class PlayersController < ApplicationController
   
   def show
     @player = Player.find(params[:id])
+    player = @player.serializable_hash["characters"].map do |c|
+      z = c.serializable_hash
+      z["race"] = c.race_data.name
+      z["player_id"] = c.player.id
+      c = z
+    end
     respond_to do |format|
       format.html
       format.xml  { render :xml  => @player }
-      format.json { render :json => @player }
+      format.json { render :json => player }
     end
   end
   
