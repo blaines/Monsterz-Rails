@@ -146,8 +146,8 @@ class DecisionsController < ApplicationController
   end
   
   def use_turns(int)
-    @character.turns -= int
     if @character.turns-int >= 0
+      @character.turns -= int
       return true
     else
       respond_to do |format|
