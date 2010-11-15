@@ -165,7 +165,7 @@ class DecisionsController < ApplicationController
       @character.turns -= int
       return true
     else
-      @character.turns = 30
+      @character.turns = @character.level
       @player.save
       respond_to do |format|
         format.html { render :text => "NOT ENOUGH TURNS"}
