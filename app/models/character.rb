@@ -35,7 +35,7 @@ class Character
   end
   
   def next_level_progress
-    (((next_level_experience)-(self.experience)).to_f/((self.level**3)-((self.level-1)**3)).to_f).round(2)
+    1-(((next_level_experience)-(self.experience)).to_f/((self.level**3)-((self.level-1)**3)).to_f).round(2)
   end
   
   def formatted_hash
