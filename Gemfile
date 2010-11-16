@@ -8,6 +8,7 @@ gem 'nifty-generators'
 gem 'formtastic'
 gem 'carrierwave'
 gem 'fog'
+gem "rmagick"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
