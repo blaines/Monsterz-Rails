@@ -12,7 +12,7 @@ class PlayersController < ApplicationController
     respond_to do |format|
       format.html
       format.xml  { render :xml  => @player }
-      format.json { render :json => player }
+      format.json { render :json => player.formatted_hash }
     end
   end
   
