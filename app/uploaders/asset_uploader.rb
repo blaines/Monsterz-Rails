@@ -3,7 +3,7 @@
 class AssetUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or ImageScience support:
-  # include CarrierWave::RMagick
+  include CarrierWave::RMagick
   # include CarrierWave::ImageScience
 
   # Choose what kind of storage to use for this uploader:
@@ -34,19 +34,19 @@ class AssetUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :scale => [50, 50]
+    process :resize_to_fill => [50, 50]
   end
   version :iphone_small do
-    process :scale => [60, 60]
+    process :resize_to_fill => [60, 60]
   end
   version :iphone_small_2x do
-    process :scale => [120, 120]
+    process :resize_to_fill => [120, 120]
   end
   version :iphone do
-    process :scale => [200, 200]
+    process :resize_to_fill => [200, 200]
   end
   version :iphone_2x do
-    process :scale => [400, 400]
+    process :resize_to_fill => [400, 400]
   end
   # version :ipad do
   #   process :scale => [50, 50]
