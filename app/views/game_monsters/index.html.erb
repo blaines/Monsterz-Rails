@@ -1,0 +1,19 @@
+<% title "Monsters" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Level</th>
+  </tr>
+  <% for game_monster in @game_monsters %>
+    <tr>
+      <td><%= game_monster.name %></td>
+      <td><%= game_monster.min_level %></td>
+      <td><%= link_to "Show", game_monster %></td>
+      <td><%= link_to "Edit", edit_game_monster_path(game_monster) %></td>
+      <td><%= link_to "Destroy", game_monster, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Game Monster", new_game_monster_path %></p>

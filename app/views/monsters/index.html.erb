@@ -1,0 +1,27 @@
+<% title "Monsters" %>
+
+<table>
+  <tr>
+    <th>Level</th>
+    <th>Turns</th>
+    <th>Race</th>
+    <th>Monster</th>
+    <th>Health</th>
+    <th>Experience</th>
+  </tr>
+  <% for monster in @monsters %>
+    <tr>
+      <td><%= monster.level %></td>
+      <td><%= monster.turns %></td>
+      <td><%= monster.race_data.name %></td>
+      <td><%= monster.game_monster.name %></td>
+      <td><%= monster.health %></td>
+      <td><%= monster.experience %></td>
+      <td><%= link_to "Show", [@player,monster] %></td>
+      <td><%= link_to "Edit", edit_player_monster_path(@player,monster) %></td>
+      <td><%= link_to "Destroy", [@player,monster], :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Monster", new_player_monster_path(@player) %></p>

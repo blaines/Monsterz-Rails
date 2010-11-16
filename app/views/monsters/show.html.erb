@@ -1,0 +1,28 @@
+<% title "Monster" %>
+
+<p>
+  <strong>Level:</strong>
+  <%= @monster.level %>
+</p>
+<p>
+  <strong>Turns:</strong>
+  <%= @monster.turns %>
+</p>
+<p>
+  <strong>Race:</strong>
+  <%= @monster.race %>
+</p>
+<p>
+  <strong>Health:</strong>
+  <%= @monster.health %>
+</p>
+<p>
+  <strong>Experience:</strong>
+  <%= @monster.experience %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_player_monster_path(@player,@monster) %> |
+  <%= link_to "Destroy", [@player,@monster], :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", player_monsters_path(@player) %>
+</p>

@@ -1,0 +1,16 @@
+<% title "Game Monster" %>
+
+<p>
+  <strong>Asset:</strong>
+  <%= @game_monster.asset %>
+</p>
+<p>
+  <strong>Min Level:</strong>
+  <%= @game_monster.min_level %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_game_monster_path(@game_monster) %> |
+  <%= link_to "Destroy", @game_monster, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", game_monsters_path %>
+</p>
