@@ -6,13 +6,10 @@ class PlayersController < ApplicationController
   def show
     @player = Player.find(params[:id])
     player = @player.serializable_hash
-    player["characters"] = player["characters"].map do |c|
-      c = c.formatted_hash
-    end
     respond_to do |format|
       format.html
       format.xml  { render :xml  => @player }
-      format.json { render :json => player.formatted_hash }
+      format.json { render :json => @player.formatted_hash }
     end
   end
   
