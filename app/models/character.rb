@@ -41,7 +41,7 @@ class Character
   
   def issue_turns
     unless turns_last_issued.blank?
-      turns += (Time.now-turns_last_issued)/60/5
+      turns += (Time.now-turns_last_issued)/10
     end
     turns_last_issued = Time.now.to_i
   end
