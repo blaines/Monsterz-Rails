@@ -1,13 +1,13 @@
 require 'test_helper'
 
-class GameCharactersControllerTest < ActionController::TestCase
+class GameMonstersControllerTest < ActionController::TestCase
   def test_index
     get :index
     assert_template 'index'
   end
   
   def test_show
-    get :show, :id => GameCharacter.first
+    get :show, :id => GameMonster.first
     assert_template 'show'
   end
   
@@ -17,38 +17,38 @@ class GameCharactersControllerTest < ActionController::TestCase
   end
   
   def test_create_invalid
-    GameCharacter.any_instance.stubs(:valid?).returns(false)
+    GameMonster.any_instance.stubs(:valid?).returns(false)
     post :create
     assert_template 'new'
   end
 
   def test_create_valid
-    GameCharacter.any_instance.stubs(:valid?).returns(true)
+    GameMonster.any_instance.stubs(:valid?).returns(true)
     post :create
-    assert_redirected_to game_character_url(assigns(:game_character))
+    assert_redirected_to game_monster_url(assigns(:game_monster))
   end
   
   def test_edit
-    get :edit, :id => GameCharacter.first
+    get :edit, :id => GameMonster.first
     assert_template 'edit'
   end
   
   def test_update_invalid
-    GameCharacter.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => GameCharacter.first
+    GameMonster.any_instance.stubs(:valid?).returns(false)
+    put :update, :id => GameMonster.first
     assert_template 'edit'
   end
 
   def test_update_valid
-    GameCharacter.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => GameCharacter.first
-    assert_redirected_to game_character_url(assigns(:game_character))
+    GameMonster.any_instance.stubs(:valid?).returns(true)
+    put :update, :id => GameMonster.first
+    assert_redirected_to game_monster_url(assigns(:game_monster))
   end
   
   def test_destroy
-    game_character = GameCharacter.first
-    delete :destroy, :id => game_character
-    assert_redirected_to game_characters_url
-    assert !GameCharacter.exists?(game_character.id)
+    game_monster = GameMonster.first
+    delete :destroy, :id => game_monster
+    assert_redirected_to game_monsters_url
+    assert !GameMonster.exists?(game_monster.id)
   end
 end

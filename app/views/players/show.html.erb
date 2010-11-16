@@ -10,7 +10,7 @@
   <%= @player.adrenaline %>
 </p>
 <h2>
-	Characters
+	Monsters
 </h2>
 <table>
   <tr>
@@ -22,23 +22,23 @@
     <th>Health</th>
     <th>Experience</th>
   </tr>
-  <% for character in @player.characters %>
+  <% for monster in @player.monsters %>
     <tr>
-      <td><%= character.level %></td>
-      <td><%= character.turns %></td>
-      <td><%= Time.at(character.turns_last_issued) unless character.turns_last_issued.blank? %></td>
-      <td><%= character.race_data.name %></td>
-      <td><%= character.game_character.name %></td>
-      <td><%= character.health %></td>
-      <td><%= character.experience %></td>
-      <td><%= link_to "Show", [@player,character] %></td>
-      <td><%= link_to "Edit", edit_player_character_path(@player,character) %></td>
-      <td><%= link_to "Destroy", [@player,character], :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= monster.level %></td>
+      <td><%= monster.turns %></td>
+      <td><%= Time.at(monster.turns_last_issued) unless monster.turns_last_issued.blank? %></td>
+      <td><%= monster.race_data.name %></td>
+      <td><%= monster.game_monster.name %></td>
+      <td><%= monster.health %></td>
+      <td><%= monster.experience %></td>
+      <td><%= link_to "Show", [@player,monster] %></td>
+      <td><%= link_to "Edit", edit_player_monster_path(@player,monster) %></td>
+      <td><%= link_to "Destroy", [@player,monster], :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 <p>
-	<%= link_to "Characters", player_characters_path(@player) %>
+	<%= link_to "Monsters", player_monsters_path(@player) %>
 </p>
 
 <p>

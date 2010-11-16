@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class GameCharacterTest < ActiveSupport::TestCase
+class GameMonsterTest < ActiveSupport::TestCase
   def test_should_be_valid
-    assert GameCharacter.new.valid?
+    assert GameMonster.new.valid?
   end
 end

@@ -6,17 +6,17 @@ Monsters::Application.routes.draw do
     
     resources :game_races, :as => :races
 
-    resources :game_characters, :as => :characters
+    resources :game_monsters, :as => :monsters
     
   end
   
   resources :players do
     
-    resources :characters
+    resources :monsters
     
   end
   
-  match 'decisions(/:action(/:player_id(/:character_id(.:format))))' => 'decisions'
+  match 'decisions(/:action(/:player_id(/:monster_id(.:format))))' => 'decisions'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

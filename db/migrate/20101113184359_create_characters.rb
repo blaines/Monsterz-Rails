@@ -1,6 +1,6 @@
-class CreateCharacters < ActiveRecord::Migration
+class CreateMonsters < ActiveRecord::Migration
   def self.up
-    create_table :characters do |t|
+    create_table :monsters do |t|
       t.integer :energy
       t.integer :level
       t.integer :turns
@@ -12,6 +12,6 @@ class CreateCharacters < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :characters
+    drop_table :monsters
   end
 end

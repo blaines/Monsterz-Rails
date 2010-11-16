@@ -36,16 +36,16 @@ class AssetUploader < CarrierWave::Uploader::Base
   version :thumb do
     process :resize_to_fill => [50, 50]
   end
-  version :iphone_small do
-    process :resize_to_fill => [60, 60]
-  end
-  version :iphone_small_2x do
-    process :resize_to_fill => [120, 120]
-  end
+  # version :iphone_small do
+  #   process :resize_to_fill => [60, 60]
+  # end
+  # version :iphone_small_2x do
+  #   process :resize_to_fill => [120, 120]
+  # end
+  # version :iphone do
+  #   process :resize_to_fill => [200, 200]
+  # end
   version :iphone do
-    process :resize_to_fill => [200, 200]
-  end
-  version :iphone_2x do
     process :resize_to_fill => [400, 400]
   end
   # version :ipad do

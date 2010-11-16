@@ -1,13 +1,13 @@
 require 'test_helper'
 
-class CharactersControllerTest < ActionController::TestCase
+class MonstersControllerTest < ActionController::TestCase
   def test_index
     get :index
     assert_template 'index'
   end
   
   def test_show
-    get :show, :id => Character.first
+    get :show, :id => Monster.first
     assert_template 'show'
   end
   
@@ -17,38 +17,38 @@ class CharactersControllerTest < ActionController::TestCase
   end
   
   def test_create_invalid
-    Character.any_instance.stubs(:valid?).returns(false)
+    Monster.any_instance.stubs(:valid?).returns(false)
     post :create
     assert_template 'new'
   end
 
   def test_create_valid
-    Character.any_instance.stubs(:valid?).returns(true)
+    Monster.any_instance.stubs(:valid?).returns(true)
     post :create
-    assert_redirected_to character_url(assigns(:character))
+    assert_redirected_to monster_url(assigns(:monster))
   end
   
   def test_edit
-    get :edit, :id => Character.first
+    get :edit, :id => Monster.first
     assert_template 'edit'
   end
   
   def test_update_invalid
-    Character.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => Character.first
+    Monster.any_instance.stubs(:valid?).returns(false)
+    put :update, :id => Monster.first
     assert_template 'edit'
   end
 
   def test_update_valid
-    Character.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => Character.first
-    assert_redirected_to character_url(assigns(:character))
+    Monster.any_instance.stubs(:valid?).returns(true)
+    put :update, :id => Monster.first
+    assert_redirected_to monster_url(assigns(:monster))
   end
   
   def test_destroy
-    character = Character.first
-    delete :destroy, :id => character
-    assert_redirected_to characters_url
-    assert !Character.exists?(character.id)
+    monster = Monster.first
+    delete :destroy, :id => monster
+    assert_redirected_to monsters_url
+    assert !Monster.exists?(monster.id)
   end
 end

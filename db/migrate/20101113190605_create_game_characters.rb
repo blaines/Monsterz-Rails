@@ -1,6 +1,6 @@
-class CreateGameCharacters < ActiveRecord::Migration
+class CreateGameMonsters < ActiveRecord::Migration
   def self.up
-    create_table :game_characters do |t|
+    create_table :game_monsters do |t|
       t.string :asset
       t.integer :min_level
       t.timestamps
@@ -8,6 +8,6 @@ class CreateGameCharacters < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :game_characters
+    drop_table :game_monsters
   end
 end

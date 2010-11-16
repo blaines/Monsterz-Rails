@@ -2,22 +2,22 @@ class Player
   include Mongoid::Document
   field :name
   field :adrenaline, :type => Integer
-  embeds_many :characters
+  embeds_many :monsters
   
   validates_uniqueness_of :name
   
-  before_save :update_character
+  before_save :update_monster
   
   def formatted_hash
     z = self.serializable_hash
     z["current_epoch"] = Time.now.to_i
-    z["characters"] = z["characters"].map do |c|
+    z["monsters"] = z["monsters"].map do |c|
       c = c.formatted_hash
     end
     z
   end
   
-  def update_character
-    # self.character.issue_turns
+  def update_monster
+    # self.monster.issue_turns
   end
 end
