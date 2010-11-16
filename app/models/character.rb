@@ -42,9 +42,9 @@ class Character
   
   def issue_turns
     unless turns_last_issued.blank?
-      turns += (Time.now-turns_last_issued)/10
+      self.turns += ((Time.now.to_i-turns_last_issued)/10)
     end
-    turns_last_issued = Time.now.to_i
+    self.turns_last_issued = Time.now.to_i
   end
   
   def formatted_hash

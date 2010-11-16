@@ -6,8 +6,6 @@ class Player
   
   validates_uniqueness_of :name
   
-  before_save :update_character
-  
   def formatted_hash
     z = self.serializable_hash
     z["current_epoch"] = Time.now.to_i
@@ -15,9 +13,5 @@ class Player
       c = c.formatted_hash
     end
     z
-  end
-  
-  def update_character
-    self.character.issue_turns
   end
 end
