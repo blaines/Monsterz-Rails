@@ -18,6 +18,6 @@ class Player
   end
   
   def update_character
-    self.character.issue_turns
+    # self.character.issue_turns
   end
 end
