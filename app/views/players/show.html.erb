@@ -9,7 +9,32 @@
   <strong>Adrenaline:</strong>
   <%= @player.adrenaline %>
 </p>
-
+<h2>
+	Characters
+</h2>
+<table>
+  <tr>
+    <th>Level</th>
+    <th>Turns</th>
+    <th>Race</th>
+    <th>Monster</th>
+    <th>Health</th>
+    <th>Experience</th>
+  </tr>
+  <% for character in @player.characters %>
+    <tr>
+      <td><%= character.level %></td>
+      <td><%= character.turns %></td>
+      <td><%= character.race_data.name %></td>
+      <td><%= character.game_character.name %></td>
+      <td><%= character.health %></td>
+      <td><%= character.experience %></td>
+      <td><%= link_to "Show", [@player,character] %></td>
+      <td><%= link_to "Edit", edit_player_character_path(@player,character) %></td>
+      <td><%= link_to "Destroy", [@player,character], :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
 <p>
 	<%= link_to "Characters", player_characters_path(@player) %>
 </p>
