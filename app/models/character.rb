@@ -9,7 +9,8 @@ class Character
   referenced_in :game_race
   embedded_in :player, :inverse_of => :character
   
-  before_save :set_game_race_id, :issue_turns
+  before_save :set_game_race_id
+  before_save :issue_turns
   
   def set_game_race_id
     self.game_race = Game.first.game_races.find race
