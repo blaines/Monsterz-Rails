@@ -29,7 +29,22 @@ class AssetUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
+  version :thumb do
+    process :scale => [50, 50]
+  end
+  version :iphone_small do
+    process :scale => [60, 60]
+  end
+  version :iphone_small_2x do
+    process :scale => [120, 120]
+  end
+  version :iphone do
+    process :scale => [200, 200]
+  end
+  version :iphone_2x do
+    process :scale => [400, 400]
+  end
+  # version :ipad do
   #   process :scale => [50, 50]
   # end
 

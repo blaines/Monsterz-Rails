@@ -165,8 +165,8 @@ class DecisionsController < ApplicationController
       @character.turns -= int
       return true
     else
-      @character.turns = @character.level
-      @player.save
+      # @character.turns = @character.level
+      # @player.save
       respond_to do |format|
         format.html { render :text => "NOT ENOUGH TURNS"}
         format.json { render :json => {:response => :not_enough_turns}.merge({:character => @character.formatted_hash}).to_json }
