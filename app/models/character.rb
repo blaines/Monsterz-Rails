@@ -45,7 +45,6 @@ class Character
     z["name"] = game_character.name
     z["max_health"] = max_health
     z["max_turns"] = max_turns
-    z["image_prefix"] = "http://monsters.technologyaz.com.s3.amazonaws.com/monsters/game_character/asset/"
     z["image_filename"] = game_character.asset_filename
     z["next_level_experience"] = next_level_experience
     z["next_level_progress"] = next_level_progress

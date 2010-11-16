@@ -5,6 +5,11 @@ class GamesController < ApplicationController
   
   def show
     @game = Game.first
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml  => @game }
+      format.json { render :json => @game.formatted_hash }
+    end
   end
   
   def new
