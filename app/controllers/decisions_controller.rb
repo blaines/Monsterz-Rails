@@ -161,6 +161,7 @@ class DecisionsController < ApplicationController
   end
   
   def use_turns(int)
+    debugger
     if @monster.turns-int >= 0
       @monster.turns -= int
       return true
