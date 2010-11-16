@@ -2,13 +2,14 @@ class Character
   include Mongoid::Document
   field :level, :type => Integer
   field :turns, :type => Integer
+  field :turns_last_issued, :type => Integer
   field :health, :type => Integer
   field :experience, :type => Integer
   field :race
   referenced_in :game_race
   embedded_in :player, :inverse_of => :character
   
-  before_save :set_game_race_id
+  before_save :set_game_race_id, :issue_turns
   
   def set_game_race_id
     self.game_race = Game.first.game_races.find race
@@ -36,6 +37,13 @@ class Character
   
   def next_level_progress
     1-(((next_level_experience)-(self.experience)).to_f/((self.level**3)-((self.level-1)**3)).to_f).round(2)
+  end
+  
+  def issue_turns
+    unless turns_last_issued.blank?
+      turns += (Time.now-turns_last_issued)/60/5
+    end
+    turns_last_issued = Time.now.to_i
   end
   
   def formatted_hash
