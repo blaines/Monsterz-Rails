@@ -9,6 +9,9 @@ class Player
   def formatted_hash
     z = self.serializable_hash
     z["current_epoch"] = Time.now.to_i
+    z["characters"] = z["characters"].map do |c|
+      c = c.formatted_hash
+    end
     z
   end
 end
