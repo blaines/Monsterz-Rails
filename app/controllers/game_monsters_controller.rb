@@ -1,7 +1,7 @@
 class GameMonstersController < ApplicationController
   def index
     @game = Game.first
-    @game_monsters = @game.game_monsters.all.asc(:min_level).asc(:name)
+    @game_monsters = @game.game_monsters.all.asc(:race).asc(:min_level).asc(:name)
   end
   
   def show

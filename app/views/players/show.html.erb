@@ -1,48 +1,50 @@
 <% title "Player" %>
 
 <p>
-  <strong>Name:</strong>
-  <%= @player.name %>
+	<strong>Name:</strong>
+	<%= @player.name %>
 </p>
 
 <p>
-  <strong>Adrenaline:</strong>
-  <%= @player.adrenaline %>
+	<strong>Adrenaline:</strong>
+	<%= @player.adrenaline %>
 </p>
 <h2>
 	Monsters
 </h2>
 <table>
-  <tr>
-    <th>Level</th>
-    <th>Turns</th>
-    <th>Turns Last Issued</th>
-    <th>Race</th>
-    <th>Monster</th>
-    <th>Health</th>
-    <th>Experience</th>
-  </tr>
-  <% for monster in @player.monsters %>
-    <tr>
-      <td><%= monster.level %></td>
-      <td><%= monster.turns %></td>
-      <td><%= Time.at(monster.turns_last_issued) unless monster.turns_last_issued.blank? %></td>
-      <td><%= monster.race_data.name %></td>
-      <td><%= monster.game_monster.name %></td>
-      <td><%= monster.health %></td>
-      <td><%= monster.experience %></td>
-      <td><%= link_to "Show", [@player,monster] %></td>
-      <td><%= link_to "Edit", edit_player_monster_path(@player,monster) %></td>
-      <td><%= link_to "Destroy", [@player,monster], :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
+	<tr>
+		<th></th>
+		<th>Level</th>
+		<th>Turns</th>
+		<th>Turns Last Issued</th>
+		<th>Race</th>
+		<th>Monster</th>
+		<th>Health</th>
+		<th>Experience</th>
+	</tr>
+	<% for monster in @player.monsters %>
+	<tr>
+		<td><%= image_tag monster.game_monster.asset.thumb.url if monster.game_monster.asset? %></td>
+		<td><%= monster.level %></td>
+		<td><%= monster.turns %></td>
+		<td><%= Time.at(monster.turns_last_issued) unless monster.turns_last_issued.blank? %></td>
+		<td><%= monster.race_data.name %></td>
+		<td><%= monster.game_monster.name %></td>
+		<td><%= monster.health %></td>
+		<td><%= monster.experience %></td>
+		<td><%= link_to "Show", [@player,monster] %></td>
+		<td><%= link_to "Edit", edit_player_monster_path(@player,monster) %></td>
+		<td><%= link_to "Destroy", [@player,monster], :confirm => 'Are you sure?', :method => :delete %></td>
+	</tr>
+	<% end %>
 </table>
 <p>
 	<%= link_to "Monsters", player_monsters_path(@player) %>
 </p>
 
 <p>
-  <%= link_to "Edit", edit_player_path(@player) %> |
-  <%= link_to "Destroy", @player, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", players_path %>
+	<%= link_to "Edit", edit_player_path(@player) %> |
+	<%= link_to "Destroy", @player, :confirm => 'Are you sure?', :method => :delete %> |
+	<%= link_to "View All", players_path %>
 </p>

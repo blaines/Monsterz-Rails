@@ -1,8 +1,7 @@
 <% title "Monsters" %>
 <style>
 	table { width: 100%; }
-	tr { border-bottom: 1px solid #DDD; }
-	td { text-align: center; }
+	td { border-bottom: 1px solid #DDD; text-align: center; }
 </style>
 <table>
 	<tr>
@@ -15,9 +14,7 @@
 		<td><%= image_tag game_monster.asset.thumb.url if game_monster.asset? %></td>
 		<td><%= game_monster.name %></td>
 		<td><%= game_monster.min_level %></td>
-		<td><%= link_to "Show", game_monster %></td>
-		<td><%= link_to "Edit", edit_game_monster_path(game_monster) %></td>
-		<td><%= link_to "Destroy", game_monster, :confirm => 'Are you sure?', :method => :delete %></td>
+		<td><%= link_to "Show", game_monster %> | <%= link_to "Edit", edit_game_monster_path(game_monster) %> | <%= link_to "Destroy", game_monster, :confirm => 'Are you sure?', :method => :delete %></td>
 	</tr>
 	<% end %>
 </table>
