@@ -5,6 +5,7 @@
 </style>
 <p>
 	<strong>Asset:</strong>
+	<% if @game_monster.asset? %>
 	<%= image_tag @game_monster.asset.thumb.url %>
 	<table>
 		<tr>
@@ -17,6 +18,9 @@
 			<td>original: <input value="<%= @game_monster.asset.url %>"/></td>
 		</tr>
 	</table>
+	<% else %>
+	<strong>No Image</strong>
+	<% end %>
 </p>
 <p>
 	<strong>Min Level:</strong>

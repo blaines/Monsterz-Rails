@@ -115,14 +115,21 @@ class DecisionsController < ApplicationController
     z = "Remaining Experience #{experience_gap}"
     
     @player.adrenaline -= experience_gap
-    @monster.experience += experience_gap
-    levelup?
-    @player.save
-    respond_to do |format|
-      format.html { render :text => z}
-      format.json { render :json => {:response => :ok}.merge({:monster => @monster.formatted_hash}).to_json }
-    end
     
+    if @player.adrenaline > 0
+      @monster.experience += experience_gap
+      levelup?
+      @player.save
+      respond_to do |format|
+        format.html { render :text => z}
+        format.json { render :json => {:response => :ok}.merge({:monster => @monster.formatted_hash}).to_json }
+      end
+    else
+      respond_to do |format|
+        format.html { render :text => "Not enough adrenaline"}
+        format.json { render :json => {:response => :fail, :message => "Not enough adrenaline"}.merge({:monster => @monster.formatted_hash}).to_json }
+      end
+    end    
   end
   
   def fight
