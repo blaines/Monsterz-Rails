@@ -201,6 +201,7 @@ class DecisionsController < ApplicationController
   def levelup?
     if @monster.experience >= @monster.level**3
       @monster.level += 1
+      @monster.turns = @monster.level
       @monster.health = 95+(5*@monster.level)
     end
   end
