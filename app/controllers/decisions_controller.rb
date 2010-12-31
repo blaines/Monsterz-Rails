@@ -1,5 +1,5 @@
 class DecisionsController < ApplicationController
-
+    
   def rest
     @player = Player.find(params[:player_id])
     @monster = @player.monsters.find(params[:monster_id])

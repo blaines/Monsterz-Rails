@@ -5,6 +5,10 @@ class PlayersController < ApplicationController
   
   def show
     @player = Player.find(params[:id])
+    # HACK <
+    @player.monsters.each {|e| e.issue_turns}
+    @player.save
+    # HACK >
     player = @player.serializable_hash
     respond_to do |format|
       format.html

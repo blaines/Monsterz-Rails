@@ -13,7 +13,8 @@ class MonstersController < ApplicationController
     @player = Player.find(params[:player_id])
     @monster = @player.monsters.build
   end
-  
+
+#   HTTP POST
   def create
     @player = Player.find(params[:player_id])
     @monster = @player.monsters.build(params[:monster])
